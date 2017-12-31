@@ -1,0 +1,25 @@
+channels:
+  - fastai
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - cuda80
+  - pandas
+  - requests
+  - scikit-image
+  - pytorch>=0.2.0
+  - torchvision>=0.1.9
+  - feather-format
+  - notebook 
+  - Pillow 
+  - ipywidgets 
+  - scikit-learn 
+  - matplotlib
+  - pip:
+    - tensorflow-gpu
+    - kaggle-cli
+    - keras
+    - fastai
+    - matplotlib
+    
