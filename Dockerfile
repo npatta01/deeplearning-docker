@@ -7,6 +7,8 @@ ARG CONDA_VERSION=4.3.31
 ARG CONDA_DIR=/opt/conda
 ARG TINI_VERSION=v0.16.1
 ARG USERNAME=ubuntu
+ARG USERID=1000
+
 
 # Conda
 ENV CONDA_ENV dl
@@ -24,7 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
 ADD https://github.com/krallin/tini/releases/download/$TINI_VERSION/tini /tini
 RUN chmod +x /tini
 
-RUN useradd -ms /bin/bash $USERNAME && \
+RUN useradd --create-home -s /bin/bash --no-user-group -u $USERID $USERNAME  && \
   chown $USERNAME $CONDA_DIR -R && \
   adduser $USERNAME sudo && \
   echo "$USERNAME ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
@@ -47,7 +49,9 @@ EXPOSE 8888
 
 
 # Clone fast.ai source
-RUN git clone -q https://github.com/fastai/courses.git fastai-courses
+RUN git clone -q https://github.com/fastai/fastai fastai-courses
+
+#RUN mkdir -p ~/data
 
 ENTRYPOINT ["/tini", "--"]
 CMD jupyter notebook --port=8888
