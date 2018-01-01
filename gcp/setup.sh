@@ -18,7 +18,7 @@ echo "Installing Docker"
 sudo apt-get update
 # install docker
 curl -fsSL get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
+sudo bash get-docker.sh
 # add current user to docker suer group
 sudo usermod -aG docker $USER
 
