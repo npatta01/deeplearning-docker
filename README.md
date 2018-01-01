@@ -58,7 +58,7 @@ bash gcp/start.sh
 
 Connect to machine
 ```
-gcloud compute ssh dl --ssh-flag="-L 8888:localhost:8888"
+gcloud compute ssh ubuntu@dl --ssh-flag="-L 8888:localhost:8888"
 ```
 
 Install dependencies on VM
