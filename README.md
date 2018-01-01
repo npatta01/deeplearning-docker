@@ -68,5 +68,5 @@ bash gcp/setup.sh
 
 Start Docker container
 ```
-nvidia-docker run -it -p 8888:8888 v ~/custom_data:/home/ubuntu/data npatta01/deeplearning
+nvidia-docker run -it -p 8888:8888 v ~/data:/home/ubuntu/data npatta01/deeplearning
 ```
